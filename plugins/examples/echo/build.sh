@@ -1,1 +1,1 @@
-go build -buildmode=c-shared -o ..\\..\\echo.sh main.go
+go build -buildmode=c-shared -o ..\\..\\echo.so main.go

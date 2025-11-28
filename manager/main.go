@@ -23,6 +23,7 @@ import (
 	"log"
 	"manager/pkg" // Assumes your module name is 'manager'
 	"path/filepath"
+	"strings"
 )
 
 func main() {
@@ -45,6 +46,13 @@ func main() {
 
 	// 3. Loop and execute
 	for _, dll := range dlls {
-		pkg.ExecutePlugin(dll, "Hello from Manager!")
+		input := "Hello World"
+
+		// If it's the weather plugin, send a WOEID (e.g., 44418 for London)
+		if strings.Contains(dll, "weather") {
+			input = "44418"
+		}
+
+		pkg.ExecutePlugin(dll, input)
 	}
 }
